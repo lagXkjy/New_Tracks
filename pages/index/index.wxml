@@ -2,7 +2,10 @@
 <view>
   <view class='search_box'>
     <view class='select'>
-      <view class='title' bindtap='title'><text >{{title}}</text><image src='/images/xljiantou.png'></image></view>
+      <view class='title' bindtap='title'>
+        <text>{{title}}</text>
+        <image src='/images/xljiantou.png'></image>
+      </view>
       <view class='option' wx:if='{{hover}}'>
         <view data-name='{{item.name}}' bindtap='hover' wx:for='{{titlelist}}' wx:key='*this'>{{item.name}}</view>
       </view>

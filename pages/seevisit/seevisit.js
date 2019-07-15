@@ -227,7 +227,6 @@ Page({
     return (num) => (!(/(^[1-9]\d*$)/.test(num)))
   },
   Submission(data) { //判断所填信息是否完善
-    console.log(data)
     let t = $common.trim(data)
     switch (false) {
       case t('Name'):
@@ -301,9 +300,52 @@ Page({
     }
 
   },
+  perfect(data) { //判断所填信息是否完善
+    let t = $common.trim(data)
+    switch (false) {
+      case t('Name'):
+        return (this.getFocus('Name'), this.toast('请完善客户名称'));
+        break
+      case t('Contacts'):
+        return (this.getFocus('Contacts'), this.toast('请输入联系人'));
+        break
+      case t('phonenumber'):
+        return (this.getFocus('phonenumber'), this.toast('请输入联系电话'));
+        break
+      case t('InnerTime'):
+        return this.toast('请完善拜访日期');
+        break
+      case t('division'):
+        return this.toast('请完善Division');
+        break
+      case t('visit'):
+        return this.toast('请完善拜访类型');
+        break
+      case t('objective'):
+        return this.toast('请完善目的');
+        break
+      case t('plan'):
+        return this.toast('请完善拜访计划');
+        break
+      case t('Result'):
+        return this.toast('请完善拜访结果');
+        break
+      case t('TalksTime'):
+        return (this.getFocus('TalksTime'), this.toast('请完善会谈时间'));
+        break
+      case t('WayTime'):
+        return (this.getFocus('WayTime'), this.toast('请完善路途时间'));
+        break
+      case t('content'):
+        return (this.getFocus('content'), this.toast('请完善具体内容'));
+        break
+      default:
+        return true
+    }
+
+  },
   //提交
   submit(e) {
-    console.log(e)
     let data = e.detail.value
     let {
       id,
@@ -345,7 +387,13 @@ Page({
     data.Result = Results[Result] || ''
     data.plan = plans[plan] || ''
     data.CompressorUsePurchase = CompressorUsePurchase || ''
-    if (!this.Submission(data)) return
+    console.log(data)
+    console.log(data.visit)
+    if (data.visit == "拜访代理商/经销商") {
+      if (!this.perfect(data)) return
+    }else{
+      if (!this.Submission(data)) return
+    }
     if (data.Compressornum != '' && data.Compressornum != 0) {
       if (!(/^[1-9]+[0-9]*]*$/.test(data.Compressornum))) return this.toast('压缩机产品数量只能是正整数字')
     }

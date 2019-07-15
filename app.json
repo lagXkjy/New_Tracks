@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/seevisit/seevisit",
     "pages/Jump/Jump",
     "pages/index/index",
     "pages/login/login",
-    "pages/seevisit/seevisit",
     "pages/added/added",
     "pages/my/my",
     "pages/Record/Record",
