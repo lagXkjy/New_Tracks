@@ -13,6 +13,7 @@ Page({
     id: '',
     VrId: '',
     Use: false,
+    HideOthers:true,
     focus: {},
     Name: '', //客户名称
     Contacts: '', //联系人
@@ -117,6 +118,15 @@ Page({
   },
   //拜访类型
   visit(e) {
+    if (this.data.visits[e.detail.value] == "拜访代理商/经销商") {
+      this.setData({
+        HideOthers:false
+      })
+    }else{
+      this.setData({
+        HideOthers: true
+      })
+    }
     this.setData({
       visit: e.detail.value,
     })
@@ -192,7 +202,6 @@ Page({
           this.setData({
             VideoList
           })
-          console.log(this.data.VideoList)
         })
       })
       .then(res => {
@@ -387,8 +396,6 @@ Page({
     data.Result = Results[Result] || ''
     data.plan = plans[plan] || ''
     data.CompressorUsePurchase = CompressorUsePurchase || ''
-    console.log(data)
-    console.log(data.visit)
     if (data.visit == "拜访代理商/经销商") {
       if (!this.perfect(data)) return
     }else{
@@ -467,7 +474,6 @@ Page({
           self.setData({
             openSetting: true
           })
-          console.log(res)
         },
         fail(res) {
           console.log("授权失败")
@@ -480,7 +486,6 @@ Page({
           self.setData({
             Location: res.result.address
           })
-          console.log(res)
         })
         .catch(res => {
           self.setData({
@@ -506,7 +511,6 @@ Page({
         let data = res.data.Entity
         let VrCreateTime = $common.timeStamp(data.VrCreateTime).showTime;
         let VrVisitingDate = $common.timeStamp(data.VrVisitingDate).showTime;
-        // console.log()
         let VrAirCompressorUsePurchase = ''
         if (data.VrAirCompressorUsePurchase != "unll") {
           let VrAirCompressorUsePurchase = $common.timeStamp(data.VrAirCompressorUsePurchase).showTime;

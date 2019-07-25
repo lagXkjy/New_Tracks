@@ -158,21 +158,21 @@
     </view>
     <view class='listcon'>
       <view class='listTitle'>
-        <text wx:if='{{!Use}}' class='key'>*</text>型号</view>
+        <text wx:if='{{!Use&&HideOthers}}' class='key'>*</text>型号</view>
       <view class='input_box'>
         <input class='input' type="text" name='Compressorxing' focus="{{focus.Compressorxing}}" value='{{Use?listData.VrCompressorModel:Compressorxing}}' disabled='{{Use}}' placeholder='{{Use?"":"请填写客户已采购的压缩机型号"}}' placeholder-style="color:#000"></input>
       </view>
     </view>
     <view class='listcon'>
       <view class='listTitle'>
-        <text wx:if='{{!Use}}' class='key'>*</text>品牌</view>
+        <text wx:if='{{!Use&&HideOthers}}' class='key'>*</text>品牌</view>
       <view class='input_box'>
         <input class='input' type="text" name='Compressorpin' focus="{{focus.Compressorpin}}" value='{{Use?listData.VrCompressorBrand:Compressorpin}}' disabled='{{Use}}' placeholder='{{Use?"":"请填写客户已采购的压缩机品牌"}}' placeholder-style="color:#000"></input>
       </view>
     </view>
     <view class='listcon'>
       <view class='listTitle'>
-        <text wx:if='{{!Use}}' class='key'>*</text>数量</view>
+        <text wx:if='{{!Use&&HideOthers}}' class='key'>*</text>数量</view>
       <view class='input_box'>
         <input class='input' type="text" name='Compressornum' focus="{{focus.Compressornum}}" value='{{Use?listData.VrCompressorNum:Compressornum}}' disabled='{{Use}}' placeholder='{{Use?"":"请填写客户已采购的压缩机型号数量"}}' placeholder-style="color:#000"></input>
       </view>
@@ -184,21 +184,21 @@
     </view>
     <view class='listcon'>
       <view class='listTitle'>
-        <text wx:if='{{!Use}}' class='key'>*</text>型号</view>
+        <text wx:if='{{!Use&&HideOthers}}' class='key'>*</text>型号</view>
       <view class='input_box'>
         <input class='input' type="text" name='Accessoryxing' focus="{{focus.Accessoryxing}}" value='{{Use?listData.VrEquipmentModel:Accessoryxing}}' disabled='{{Use}}' placeholder='{{Use?"":"请填写客户已采购的附属设备型号"}}' placeholder-style="color:#000"></input>
       </view>
     </view>
     <view class='listcon'>
       <view class='listTitle'>
-        <text wx:if='{{!Use}}' class='key'>*</text>品牌</view>
+        <text wx:if='{{!Use&&HideOthers}}' class='key'>*</text>品牌</view>
       <view class='input_box'>
         <input class='input' type="text" name='Accessorypin' focus="{{focus.Accessorypin}}" value='{{Use?listData.VrEquipmentBrand:Accessorypin}}' disabled='{{Use}}' placeholder='{{Use?"":"请填写客户已采购的附属设备品牌"}}' placeholder-style="color:#000"></input>
       </view>
     </view>
     <view class='listcon'>
       <view class='listTitle'>
-        <text wx:if='{{!Use}}' class='key'>*</text>数量</view>
+        <text wx:if='{{!Use&&HideOthers}}' class='key'>*</text>数量</view>
       <view class='input_box'>
         <input class='input' type="text" name='Accessorynum' focus="{{focus.Accessorynum}}" value='{{Use?listData.VrEquipmentNum:Accessorynum}}' disabled='{{Use}}' placeholder='{{Use?"":"请填写客户已采购的附属设备型号数量"}}' placeholder-style="color:#000"></input>
       </view>
@@ -210,7 +210,7 @@
     </view>
     <view class='listcon'>
       <view class='listTitle'>
-        <text wx:if='{{!Use}}' class='key'>*</text>运行时间</view>
+        <text wx:if='{{!Use&&HideOthers}}' class='key'>*</text>运行时间</view>
       <view class='input_box'>
         <input class='input' type="text" name='Situationyun' focus="{{focus.Situationyun}}" value='{{Use?listData.VrAirCompressorUseRun:Situationyun}}' disabled='{{Use}}' placeholder='{{Use?"":"请填写运行时间"}}' placeholder-style="color:#000"></input>
         <text wx:if="{{!Use}}" class='inputtext'>小时</text>
@@ -218,7 +218,7 @@
     </view>
     <view class='listcon'>
       <view class='listTitle'>
-        <text wx:if='{{!Use}}' class='key'>*</text>加载时间</view>
+        <text wx:if='{{!Use&&HideOthers}}' class='key'>*</text>加载时间</view>
       <view class='input_box'>
         <input class='input' type="text" name='Situationjia' focus="{{focus.Situationjia}}" value='{{Use?listData.VrAirCompressorUseLoad:Situationjia}}' disabled='{{Use}}' placeholder='{{Use?"":"请填写加载时间"}}' placeholder-style="color:#000"></input>
         <text wx:if="{{!Use}}" class='inputtext'>小时</text>
@@ -226,7 +226,7 @@
     </view>
     <view class='listcon'>
       <view class='listTitle'>
-        <text wx:if='{{!Use}}' class='key'>*</text>客户评价</view>
+        <text wx:if='{{!Use&&HideOthers}}' class='key'>*</text>客户评价</view>
       <view class='input_box'>
         <input class='input' type="text" name='Situationping' focus="{{focus.Situationping}}" value='{{Use?listData.VrAirCompressorUseEvaluate:Situationping}}' disabled='{{Use}}' placeholder='{{Use?"":"请填写客户评价"}}' placeholder-style="color:#000"></input>
       </view>
@@ -239,7 +239,7 @@
   </view> -->
     <view class='listcon'>
       <view class='listTitle'>
-        <text wx:if='{{!Use}}' class='key'>*</text>采购日期</view>
+        <text wx:if='{{!Use&&HideOthers}}' class='key'>*</text>采购日期</view>
       <view class="section">
         <picker disabled='{{Use}}' mode="date" value="{{CompressorUsePurchase}}" start="{{start}}" end="{{end}}" bindchange="CompressorUsePurchase">
           <view class='picker_box'>
