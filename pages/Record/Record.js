@@ -14,10 +14,16 @@ Page({
     name:'',//公司名称
     listData:[]
   },
-  see(e){
+  edit(e){//编辑
+    let VrId = e.target.dataset.id
+    wx.navigateTo({
+      url: `../seevisit/seevisit?Use=false&VrId=${VrId}&id=${this.data.id}&name=${this.data.name}&edit=true`,
+    })
+  },
+  see(e){//查看
     let VrId=e.target.dataset.id
     wx.navigateTo({
-      url: `../seevisit/seevisit?Use=true&VrId=${VrId}&id=${this.data.id}&name=${this.data.name}`,
+      url: `../seevisit/seevisit?Use=true&VrId=${VrId}&id=${this.data.id}&name=${this.data.name}&edit=true`,
     })
   },
   list(){
@@ -37,8 +43,8 @@ Page({
           let listData = this.data.listData;
           listData = this.data.listData.concat(data.custInfos);
           for (let i = 0, len = listData.length; i < len; i++) {
-            let data=listData[i].VrVisitingDate
-            let date = $common.timeStamp(data).showTime;
+            let data = listData[i].VrVisitingDate
+            let date = $common.timeStamp(data).showTime == "1970-01-01" ? "" : $common.timeStamp(data).showTime;
             listData[i].VisitingDate = date
           }
           this.setData({

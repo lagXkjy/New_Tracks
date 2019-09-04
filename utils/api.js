@@ -1,5 +1,6 @@
 const phoneReg = /^(1[3456789]|9[28])\d{9}$/ // 正则手机号码
 const http =`footprint.1-zhao.fun`
+// const http =`test.1-zhao.fun`
 const host = `https://${http}`
 const MedalLevel = `${host}/MedalLevel/`
 const Images = `${host}/MultiMedia/Images/`

@@ -40,7 +40,6 @@
   padding: 15rpx 20rpx;
 }
 .button view{
-  height: 40rpx;
   border: 1rpx solid #014099;
   color: #014099;
   padding: 10rpx 15rpx;

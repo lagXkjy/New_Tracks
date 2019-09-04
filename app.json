@@ -2,11 +2,11 @@
   "pages": [
     "pages/Jump/Jump",
     "pages/seevisit/seevisit",
+    "pages/Record/Record",
     "pages/index/index",
     "pages/login/login",
     "pages/added/added",
     "pages/my/my",
-    "pages/Record/Record",
     "pages/mypage/medal/medal",
     "pages/mypage/ranking/ranking",
     "pages/information/information"

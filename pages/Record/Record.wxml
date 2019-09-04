@@ -20,6 +20,7 @@
     </view>
   </view>
   <view class='button'>
+    <view bindtap='edit' data-id='{{item.VrId}}' wx:if='{{item.VrIsSubmission==0}}'>编辑拜访</view>
     <view bindtap='see' data-id='{{item.VrId}}'>查看详情</view>
   </view>
 </view>

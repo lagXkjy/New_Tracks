@@ -9,24 +9,43 @@ Page({
   data: {
 
   },
-
+  openid() {
+    $common.login()
+      .then(res => $common.request($api.GetSaveUserOpenId, {
+        code: res.code
+      }))
+      .then(res => {
+        if (res.data.res) {
+          wx.setStorageSync('openid', res.data.openid)
+          if (res.data.userId > 0) {
+            wx.switchTab({
+              url: '../index/index',
+            })
+          } else {
+            wx.reLaunch({
+              url: '../login/login',
+            })
+          }
+        }
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    $common.getOpenId().then((res) => {
-      if (wx.getStorageSync('userId') > 0) {
-        wx.switchTab({
-          url: '../index/index',
-        })
-      } else {
-        wx.reLaunch({
-          url: '../login/login',
-        })
-      }
-    })
+  onLoad: function(options) {
+    this.openid()
+    // $common.getOpenId().then((res) => {
+    //   if (wx.getStorageSync('userId') > 0) {
+    //     wx.switchTab({
+    //       url: '../index/index',
+    //     })
+    //   } else {
+    //     wx.reLaunch({
+    //       url: '../login/login',
+    //     })
+    //   }
+    // })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

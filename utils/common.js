@@ -158,6 +158,7 @@ module.exports = {
         }))
         .then(res => {
           if (res.data.res) {
+            console.log(res)
             wx.setStorageSync('openid', res.data.openid)
             wx.setStorageSync('userId', res.data.userId)
             resolve()

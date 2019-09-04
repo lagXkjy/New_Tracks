@@ -101,10 +101,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(123)
-    // $common.getOpenId().then((res) => {
-    //   if (wx.getStorageSync('userId')>0) this.logins()
-    // })
+    $common.getOpenId().then((res) => {
+      if (wx.getStorageSync('userId')>0) this.logins()
+    }).catch(err => {
+      console.log(err)
+    })
     this.info()
   },
   /**

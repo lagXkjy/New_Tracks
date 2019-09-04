@@ -121,7 +121,7 @@ Page({
     let id = e.target.dataset.id
     let name = e.target.dataset.name
     wx.navigateTo({
-      url: `../seevisit/seevisit?Use=false&id=${id}&name=${name}`,
+      url: `../seevisit/seevisit?Use=false&id=${id}&name=${name}&edit=false&VrId=0`,
     })
   },
   //跳转查看详情页面
